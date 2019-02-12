@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block page_title %}detail{% endblock %}
+
+{% block extra_css %}
+  <style media="screen">
+    table {
+      background-color: #dddddd;
+      border-collapse: collapse;
+      width: 100%
+    }
+    tr, td {
+      border: solid 1px black;
+    }
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+    <table>
+      <tr>
+        <td rowspan="4" style="background-color: gray; height: 400px; width: 320px"></td>
+        <td>Title: {{book.title}}</td>
+      </tr>
+      <tr>
+        <td>Authors: {{book.authors.0.name}}</td>
+      </tr>
+      <tr>
+        <td>Publisher: {{book.publisher.name}}</td>
+      </tr>
+      <tr>
+        <td>Owner: {{book.owner.username}}</td>
+      </tr>
+      <tr>
+        <td colspan="2">DetailsDetailsDetails<br>This is dammy message.</td>
+      </tr>
+    </table>
+  </div>
+
+{{book_dir}}
+{% endblock %}

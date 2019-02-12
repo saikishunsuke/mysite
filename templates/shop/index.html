@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block page_title %}books{% endblock %}
+
+{% block extra_css %}
+<style media="screen">
+  .card {
+    width: 20vw;
+    margin: 5px;
+    text-align: center;
+    height: auto;
+    display: inline-block;
+    background-color: gray;
+  }
+  .card p{
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    line-height: 2em;
+  }
+  a.card {
+    text-decoration: none;
+    color: black;
+  }
+  a.card:hover {
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% for book in books %}
+      <a href="{% url "shop:detail" book_id=book.id %}" class="card" >
+        <div class="image" style="width: 100%; height: 25vh">
+          {% if book.image %}
+            <img src="{{ book.image.url }}" alt="">
+          {% endif %}
+        </div>
+        <p>{{book.title}}</p>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

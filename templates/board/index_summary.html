@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block page_title %}Board{% endblock %}
+
+{% block extra_css %}
+  <style media="screen">
+    .card{
+      background-color: white;
+      display: inline-block;
+      border-radius: 5px;
+      width: 45%;
+      margin: 5px 2px;
+      border: solid 2px gray;
+    }
+    .card p {
+      border-bottom: solid 2px gray;
+    }
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+  {% for summary in summaries %}
+      <div class="card">
+        <p class="title">{{ summary.summary_title }}</p>
+        <div class="summaryText">
+          {{ summary.summary_text }}
+        </div>
+      </div>
+      <!-- {{ summary.book.title }}
+      {{ summary.writer.username }} -->
+  {% endfor %}
+  </div>
+{% endblock %}

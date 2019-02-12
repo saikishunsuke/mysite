@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block page_title %}add new book{% endblock %}
+
+
+{% block content %}
+  <div class="comtainer">
+    <form action="" method="post">
+      {{form}}
+      {% csrf_token %}
+      <button type="submit" name="button">登録</button>
+    </form>
+  </div>
+{% endblock %}
